@@ -1,4 +1,5 @@
 import http from "node:http";
+import register from "./services/register.service.js";
 
 const PORT = 3001;
 
@@ -8,6 +9,30 @@ const routes = {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.write(JSON.stringify({ "message": "OK" }));
       res.end();
+    }
+  },
+  "/register": {
+    "POST": async (req, res) => {
+      let body = '';
+
+      req.on('data', (chunk) => {
+        body += chunk
+      });
+
+      req.on('end', async () => {
+        try {
+          const requestData = JSON.parse(body);
+          const response = await register.createNewUser(requestData);
+
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.write(JSON.stringify({ "message": `User created! id: ${response}` }));
+          res.end();
+        } catch (error) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.write(JSON.stringify({ "message": error.message }));
+          res.end();
+        }
+      });
     }
   },
   default: (_req, res) => {
@@ -32,12 +57,3 @@ const server = http
   .listen(PORT, () => console.log(`🟢 Node http server is running on ${PORT}`));
 
 export default server;
-
-
-// "/register": {
-//   "POST": (_req, res) => {
-//     res.writeHead(200, { "Content-Type": "application/json" });
-//     res.write(JSON.stringify({ "message": "OK" }));
-//     res.end();
-//   }
-// },
