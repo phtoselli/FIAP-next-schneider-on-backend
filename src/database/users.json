@@ -1,3 +1,42 @@
 {
-
+  "0": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "1": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "2": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "3": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "4": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "5": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "6": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  },
+  "7": {
+    "name": "exemplo",
+    "email": "email@email.com",
+    "password": "123"
+  }
 }

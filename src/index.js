@@ -1,14 +1,39 @@
 import http from "node:http";
+import login from "./services/login.service.js";
 import register from "./services/register.service.js";
 
 const PORT = 3001;
 
 const routes = {
-    "/": {
+  "/": {
     "GET": (_req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.write(JSON.stringify({ "message": "OK" }));
       res.end();
+    }
+  },
+  "/login": {
+    "POST": (req, res) => {
+      let body = '';
+
+      req.on('data', (chunk) => {
+        body += chunk
+      });
+
+      req.on('end', async () => {
+        try {
+          const requestData = JSON.parse(body);
+          const user = await login.findUser(requestData);
+
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.write(JSON.stringify({ user }));
+          res.end();
+        } catch (error) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.write(JSON.stringify({ "message": error.message }));
+          res.end();
+        }
+      });
     }
   },
   "/register": {
