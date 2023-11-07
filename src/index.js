@@ -50,7 +50,7 @@ const routes = {
           const response = await register.createNewUser(requestData);
 
           res.writeHead(200, { "Content-Type": "application/json" });
-          res.write(JSON.stringify({ "message": `User created! id: ${response}` }));
+          res.write(JSON.stringify({ "message": `Usuário criado! id: ${response}` }));
           res.end();
         } catch (error) {
           res.writeHead(400, { "Content-Type": "application/json" });
@@ -62,15 +62,15 @@ const routes = {
   },
   default: (_req, res) => {
     res.writeHead(404, { "Content-Type": "application/json" });
-    res.write(JSON.stringify({ "message": "This route doesn't exists." }));
+    res.write(JSON.stringify({ "message": "Essa rota não existe" }));
     res.end();
   }
 };
 
 const handler = (req, res) => {
   const { url, method } = req;
-  console.log("url:", url);
-  console.log("method:", method);
+  // console.log("url:", url);
+  // console.log("method:", method);
 
   if (!routes[url] || !routes[url][method]) return routes.default(req, res);
 
