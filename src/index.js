@@ -49,7 +49,7 @@ const routes = {
           const requestData = JSON.parse(body);
           const response = await register.createNewUser(requestData);
 
-          res.writeHead(200, { "Content-Type": "application/json" });
+          res.writeHead(201, { "Content-Type": "application/json" });
           res.write(JSON.stringify({ "message": `Usuário criado! id: ${response}` }));
           res.end();
         } catch (error) {
