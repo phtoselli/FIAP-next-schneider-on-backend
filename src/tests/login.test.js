@@ -1,14 +1,15 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 
+const BASE_URL = "http://localhost:3001/login";
+
 describe("Testa rota de login", () => {
   it("Deve retornar \"400 - Dados inválidos\" caso usuário não informe email", async () => {
     const data = {
       "password": "1234"
     };
 
-
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch(BASE_URL, {
       method: "POST",
       body: JSON.stringify(data),
     });
@@ -24,7 +25,7 @@ describe("Testa rota de login", () => {
       "email": "email@email.com"
     };
 
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch(BASE_URL, {
       method: "POST",
       body: JSON.stringify(data),
     });
@@ -41,7 +42,7 @@ describe("Testa rota de login", () => {
       "password": "123456"
     };
 
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch(BASE_URL, {
       method: "POST",
       body: JSON.stringify(data),
     });
@@ -58,7 +59,7 @@ describe("Testa rota de login", () => {
       "password": "1234"
     };
 
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch(BASE_URL, {
       method: "POST",
       body: JSON.stringify(data),
     });
