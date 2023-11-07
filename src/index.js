@@ -32,3 +32,12 @@ const server = http
   .listen(PORT, () => console.log(`🟢 Node http server is running on ${PORT}`));
 
 export default server;
+
+
+// "/register": {
+//   "POST": (_req, res) => {
+//     res.writeHead(200, { "Content-Type": "application/json" });
+//     res.write(JSON.stringify({ "message": "OK" }));
+//     res.end();
+//   }
+// },
