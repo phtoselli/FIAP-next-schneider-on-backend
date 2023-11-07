@@ -1,8 +1,8 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 
-describe("Test default route", () => {
-  it("Should return status 404 - Not found for absent route", async () => {
+describe("Testa rota padrão da aplicação.", () => {
+  it("Deve retornar status 404 para rotas inexistentes", async () => {
     const response = await fetch("http://localhost:3001/absent", {
       method: "GET",
     });
@@ -10,18 +10,18 @@ describe("Test default route", () => {
     assert.deepEqual(response.status, 404);
   });
 
-  it("Should return \"This route doesn't exists.\" for absent route", async () => {
+  it("Deve retornar \"Essa rota não existe\" caso o usuário digite uma rota incorreta", async () => {
     const response = await fetch("http://localhost:3001/absent", {
       method: "GET",
     });
     const result = await response.json();
 
-    assert.deepStrictEqual(result, { message: "This route doesn't exists." });
+    assert.deepStrictEqual(result, { message: "Essa rota não existe" });
   });
 });
 
-describe("Test \"/\" route", () => {
-  it("Should return status 200 - OK", async () => {
+describe("Testa a rota \"/\"", () => {
+  it("Deve retornar status 200 - OK", async () => {
     const response = await fetch("http://localhost:3001/", {
       method: "GET",
     });
@@ -29,7 +29,7 @@ describe("Test \"/\" route", () => {
     assert.deepEqual(response.status, 200);
   });
 
-  it("Should return \"OK\" message", async () => {
+  it("Deve retornar uma mensagem de \"OK\"", async () => {
     const response = await fetch("http://localhost:3001/", {
       method: "GET",
     });

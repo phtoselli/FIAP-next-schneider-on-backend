@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
-    "test": "node src/tests/*.test.js"
+    "test": "node --test src/tests/*.test.js"
   },
   "keywords": [],
   "author": "",
