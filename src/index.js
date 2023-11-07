@@ -69,8 +69,8 @@ const routes = {
 
 const handler = (req, res) => {
   const { url, method } = req;
-  // console.log("url:", url);
-  // console.log("method:", method);
+  console.log("url:", url);
+  console.log("method:", method);
 
   if (!routes[url] || !routes[url][method]) return routes.default(req, res);
 
