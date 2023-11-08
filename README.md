@@ -2,6 +2,8 @@
 
 🌱 ON is a gamified platform in partnership with Schneider Electric.
 
+🥇 First place winner - FIAP NEXT Challenge 2023 🥇
+
 ## References
 - [Node.JS](https://nodejs.org/en/docs)
 - [Node http](https://nodejs.org/api/http.html)
